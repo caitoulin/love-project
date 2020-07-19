@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var ejs = require('ejs');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -9,9 +10,11 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+
+app.engine('html', ejs.renderFile);
+app.set('views', path.join(__dirname, './views/dist'));    //html文件加载路径
+app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, './views/dist')));
 
 app.use(logger('dev'));
 app.use(express.json());
