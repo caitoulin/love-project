@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "debug": "node ./bin/www",
+    "debug": "node ./bin/server.js",
     "start": " node config/server.js ",
     "build": "webpack --config config/webpack.prod.config.js",
     "dll": "webpack --config config/webpack.dll.config.js"

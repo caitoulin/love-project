@@ -13,11 +13,17 @@ let miniCssExtractPlugin = new MiniCssExtractPlugin({
 });
 module.exports = {
   devtool: "eval-source-map",
-  entry:['webpack-hot-middleware/client', path.resolve(__dirname, "../views/src/index.js")],
+  entry: [
+    "webpack-hot-middleware/client",
+    path.resolve(__dirname, "../views/src/index.js"),
+  ],
   output: {
     path: path.join(__dirname, "..", "/dist"),
     filename: "bundle.js",
     publicPath: "/",
+  },
+  resolve: {
+    extensions: [".js", ".json", ".webpack.js", ".tsx", ".jsx"],
   },
   module: {
     rules: [
